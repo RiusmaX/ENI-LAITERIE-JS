@@ -46,5 +46,20 @@ router.post('/', async (req, res) => {
     })
   }
 })
-
+router.get('/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+    if (!id) return res.status(500).send('ID missing')
+    const data = await restaurantModel.findByPk(id)
+    return res.status(200).json({
+      message: 'OK',
+      data
+    })
+  } catch (error) {
+    console.error(error)
+    return res.status(500).json({
+      error
+    })
+  }
+})
 module.exports = router

@@ -54,8 +54,9 @@ function getColorFromType (type_nourriture) { // eslint-disable-line camelcase
 }
 
 function buildRestaurantsListItem (restaurant) {
-  const restaurantItem = document.createElement('div')
-  restaurantItem.classList.add('flex', 'flex-col', 'gap-2', 'w-full', 'max-w-[280px]', 'p-6', 'items-center', 'shadow-lg', 'rounded-lg')
+  const restaurantItem = document.createElement('a')
+  restaurantItem.href = `http://localhost:5173/restaurant.html?id=${restaurant.id}`
+  restaurantItem.classList.add('flex', 'flex-col', 'gap-2', 'w-full', 'max-w-[280px]', 'p-6', 'items-center', 'shadow-lg', 'rounded-lg', 'cursor-pointer')
   const content = `
     <h2 class="text-xl font-semibold">${restaurant.nom}</h2>
     <span class="${getColorFromType(restaurant.type_nourriture)} py-1 px-2 rounded-full">${restaurant.type_nourriture}</span>
