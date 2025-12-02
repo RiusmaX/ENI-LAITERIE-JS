@@ -31,7 +31,6 @@ function hideModal () {
 
 function handleChangeInput (event) {
   restaurantToAdd[event.target.id] = event.target.value
-  console.log(restaurantToAdd)
 }
 
 function handleFormError (fieldId, error) {
