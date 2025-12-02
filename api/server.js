@@ -3,6 +3,9 @@ require('dotenv').config({ path: '.env.local' })
 const express = require('express')
 const app = express()
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 // Logger : permet de notifier dans la console tout les accès à l'API (avec détail comme la date, l'heure et l'origine)
 const morgan = require('morgan')
 app.use(morgan('short'))
@@ -16,10 +19,6 @@ const helmet = require('helmet')
 app.use(helmet())
 // Port d'écoute de l'api
 const port = 3000
-
-// Connexion à la base de données
-const { connectToDatabase } = require('./utils/db')
-connectToDatabase()
 
 // Routes
 const restaurantRoute = require('./routes/restaurants.route')

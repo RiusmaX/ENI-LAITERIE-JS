@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="global.css" />
+  <title>Restaurants</title>
+</head>
+<body class="w-full">
+  <header class="flex w-full min-h-16 bg-amber-200">
+    <nav class="flex w-full">
+      <ul class="flex w-full justify-center items-center gap-4 font-semibold">
+        <li class="flex">
+          <a class="flex z-10 hover:opacity-50 transition-opacity duration-300" href='/'>Accueil</a>
+        </li>
+        <li class="flex">
+          <a class="flex z-10 hover:opacity-50 transition-opacity duration-300" href='/restaurants.html'>Restaurants</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="flex flex-col gap-8">
+    <h1 class="flex justify-center text-4xl font-semibold animate-pulse">Nos restaurants</h1>
+    <div id="restaurant-list" class="w-full place-items-center
+ grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4"></div>
+  </main>
+  <button id="fab" class="fixed flex justify-center items-center z-30 bottom-10 right-10 h-12 w-12 pb-2.5 text-5xl text-center align-middle bg-blue-500 text-white rounded-full shadow-lg cursor-pointer hover:bg-blue-400 transition-all duration-200 active:scale-95">
+    +
+  </button>
+  <div id="backdrop" class="fixed hidden w-full h-full bg-gray-800/80 z-40 top-0" />
+  <div id="modal" class="fixed hidden flex-col justify-center top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 p-4 rounded-lg shadow-lg bg-white min-w-md">
+    <h2 class="text-2xl font-semibold">Ajouter un restaurant</h2>
+    <form id="formulaire" class="flex flex-col gap-4 p-2">
+      <label class="font-semibold flex flex-col">
+        Nom :
+        <input id="nom" class="border-2 border-gray-400 rounded-lg p-2" />
+      </label>
+      <label class="font-semibold flex flex-col">
+        Type de nourriture :
+        <select id="type" class="border-2 border-gray-400 rounded-lg p-2">
+          <option value="">Sélectionnez une valeur</option>
+          <option>Français</option>
+          <option>Japonais</option>
+          <option>Italien</option>
+          <option>Américain</option>
+          <option>Indien</option>
+          <option>Chinois</option>
+          <option>Savoyard</option>
+          <option>Espagnol</option>
+          <option>Vietnamien</option>
+          <option>Fruits de mer</option>
+          <option>Libanais</option>
+          <option>Fast Food</option>
+        </select>
+      </label>
+      <button id="sendButton" class="flex justify-center w-full p-2 bg-green-400 hover:bg-green-300 disabled:bg-gray-200 text-center font-semibold cursor-pointer disabled:cursor-not-allowed rounded-lg !disabled:active:scale-95 transition-all duration-200" disabled>
+        Envoyer
+      </button>
+    </form>
+  </div>
+  <script type="module" src="./src/js/restaurants.js"></script>
+  <script type="module" src="./src/js/restaurants.actions.js"></script>
+</body>
+</html>
