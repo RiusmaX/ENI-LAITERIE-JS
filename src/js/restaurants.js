@@ -9,7 +9,7 @@ async function fetchRestaurants () {
   }
 }
 
-function getColorFromType (type_nourriture) { // eslint-disable-line camelcase
+export function getColorFromType (type_nourriture) { // eslint-disable-line camelcase
   switch (type_nourriture) { // eslint-disable-line camelcase
     case 'Français':
       return 'bg-gray-600 text-white'

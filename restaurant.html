@@ -3,10 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="global.css" />
+  <title>Détail Restaurant</title>
 </head>
-<body>
-  <h1 id="title">Restaurant</h1>
+<body class="w-full bg-gray-50">
+  <header class="flex w-full min-h-16 bg-amber-200 shadow-md">
+    <nav class="flex w-full">
+      <ul class="flex w-full justify-center items-center gap-4 font-semibold text-gray-800">
+        <li class="flex">
+          <a class="flex z-10 hover:opacity-50 transition-opacity duration-300" href='/'>Accueil</a>
+        </li>
+        <li class="flex">
+          <a class="flex z-10 hover:opacity-50 transition-opacity duration-300" href='/restaurants.html'>Restaurants</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <div id="loading" class="flex justify-center items-center h-64">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500"></div>
+    </div>
+
+    <div id="restaurant-card" class="hidden max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+      <!-- Header coloré basé sur le type -->
+      <div id="header-bg" class="h-32 w-full bg-gray-300 transition-colors duration-500"></div>
+      
+      <div class="p-8 relative">
+        <!-- Badge Type -->
+        <span id="type-badge" class="absolute -top-4 right-8 px-4 py-2 rounded-full text-sm font-bold shadow-md bg-gray-200 text-gray-800">
+          Type
+        </span>
+
+        <h1 id="title" class="text-4xl font-bold text-gray-800 mb-4">Nom du Restaurant</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div>
+              <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Informations</h3>
+              <p class="mt-1 text-gray-700">
+                <span class="font-medium">ID:</span> <span id="restaurant-id">#</span>
+              </p>
+            </div>
+            
+            <!-- Placeholder pour d'autres infos (adresse, tel, etc.) si disponibles plus tard -->
+            <div>
+              <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Description</h3>
+              <p class="mt-1 text-gray-600 italic">
+                Aucune description disponible pour ce restaurant.
+              </p>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
+            <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Actions</h3>
+            <button class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded transition duration-300 cursor-pointer">
+              Commander
+            </button>
+            <button class="w-full mt-2 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow transition duration-300 cursor-pointer">
+              Réserver une table
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <a href="/restaurants.html" class="text-amber-600 hover:text-amber-800 font-medium flex items-center gap-2 transition-colors">
+            ← Retour à la liste
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="error" class="hidden max-w-lg mx-auto bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold">Erreur!</strong>
+      <span class="block sm:inline" id="error-message">Impossible de charger les détails du restaurant.</span>
+    </div>
+  </main>
 
   <script type="module" src="./src/js/restaurant.js"></script>
 </body>
